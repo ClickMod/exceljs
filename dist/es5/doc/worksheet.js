@@ -684,31 +684,33 @@ var Worksheet = /*#__PURE__*/function () {
     // convert the range defined by ['tl:br'], [tl,br] or [t,l,b,r] into a single 'merged' cell
   }, {
     key: "mergeCells",
-    value: function mergeCells() {
-      for (var _len3 = arguments.length, cells = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-        cells[_key3] = arguments[_key3];
+    value: function mergeCells(forceMerge) {
+      for (var _len3 = arguments.length, cells = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        cells[_key3 - 1] = arguments[_key3];
       }
       var dimensions = new Range(cells);
-      this._mergeCellsInternal(dimensions);
+      this._mergeCellsInternal(dimensions, false, forceMerge);
     }
   }, {
     key: "mergeCellsWithoutStyle",
-    value: function mergeCellsWithoutStyle() {
-      for (var _len4 = arguments.length, cells = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-        cells[_key4] = arguments[_key4];
+    value: function mergeCellsWithoutStyle(forceMerge) {
+      for (var _len4 = arguments.length, cells = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+        cells[_key4 - 1] = arguments[_key4];
       }
       var dimensions = new Range(cells);
-      this._mergeCellsInternal(dimensions, true);
+      this._mergeCellsInternal(dimensions, true, forceMerge);
     }
   }, {
     key: "_mergeCellsInternal",
-    value: function _mergeCellsInternal(dimensions, ignoreStyle) {
+    value: function _mergeCellsInternal(dimensions, ignoreStyle, forceMerge) {
       // check cells aren't already merged
-      _.each(this._merges, function (merge) {
-        if (merge.intersects(dimensions)) {
-          throw new Error('Cannot merge already merged cells');
-        }
-      });
+      if (!forceMerge) {
+        _.each(this._merges, function (merge) {
+          if (merge.intersects(dimensions)) {
+            throw new Error('Cannot merge already merged cells');
+          }
+        });
+      }
 
       // apply merge
       var master = this.getCell(dimensions.top, dimensions.left);
