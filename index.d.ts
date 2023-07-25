@@ -1285,26 +1285,26 @@ export interface Worksheet {
 	 *
 	 * t, l, b, r numbers, e.g. `10,11,12,13`
 	 */
-	mergeCells(forceMerge: boolean): void;
-	mergeCells(forceMerge: boolean, v: Range): void;
-	mergeCells(forceMerge: boolean, v: string): void;
-	mergeCells(forceMerge: boolean, v: Location): void;
-	mergeCells(forceMerge: boolean, top: number, left: number, bottom: number, right: number, sheetName?: string): void;
-	mergeCells(forceMerge: boolean, tl: string, br: string, sheetName?: string): void;
-	mergeCells(forceMerge: boolean, v: [string, string]): void;
-	mergeCells(forceMerge: boolean, v: [string, string, string]): void;
-	mergeCells(forceMerge: boolean, v: [number, number, number, number]): void;
-	mergeCells(forceMerge: boolean, v: [number, number, number, number, string]): void;
-	mergeCellsWithoutStyle(forceMerge: boolean): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: Range): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: string): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: Location): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, top: number, left: number, bottom: number, right: number, sheetName?: string): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, tl: string, br: string, sheetName?: string): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: [string, string]): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: [string, string, string]): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: [number, number, number, number]): void;
-	mergeCellsWithoutStyle(forceMerge: boolean, v: [number, number, number, number, string]): void;
+	mergeCells(): void;
+	mergeCells(v: Range): void;
+	mergeCells(v: string): void;
+	mergeCells(v: Location): void;
+	mergeCells(top: number, left: number, bottom: number, right: number, sheetName?: string): void;
+	mergeCells(tl: string, br: string, sheetName?: string): void;
+	mergeCells(v: [string, string]): void;
+	mergeCells(v: [string, string, string]): void;
+	mergeCells(v: [number, number, number, number]): void;
+	mergeCells(v: [number, number, number, number, string]): void;
+	mergeCellsWithoutStyle(): void;
+	mergeCellsWithoutStyle(v: Range): void;
+	mergeCellsWithoutStyle(v: string): void;
+	mergeCellsWithoutStyle(v: Location): void;
+	mergeCellsWithoutStyle(top: number, left: number, bottom: number, right: number, sheetName?: string): void;
+	mergeCellsWithoutStyle(tl: string, br: string, sheetName?: string): void;
+	mergeCellsWithoutStyle(v: [string, string]): void;
+	mergeCellsWithoutStyle(v: [string, string, string]): void;
+	mergeCellsWithoutStyle(v: [number, number, number, number]): void;
+	mergeCellsWithoutStyle(v: [number, number, number, number, string]): void;
 
 	/**
 	 * unmerging the cells breaks the style links
